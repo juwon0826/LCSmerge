@@ -1,11 +1,12 @@
+package merge;
 
 import java.util.LinkedList;
 public class LCS {
 	private int[][] LCS_table;
 	private int LCS_length;
 	
-	// Îëê LinkedList Í∞ÑÏùò LCS table Í≥ÑÏÇ∞ 
-	public void makeTable(LinkedList<node> L1,LinkedList<node> L2) {
+	// µŒ LinkedList ∞£¿« LCS table ∞ËªÍ 
+	public void makeTable(LinkedList<Node> L1,LinkedList<Node> L2) {
 		int len1 = L1.size();
 		int len2 = L2.size();
 		
@@ -20,7 +21,7 @@ public class LCS {
 			max = 0;
 			LCS_table[i][0] = 0;
 			for(int j = 1; j < len1; j++){
-				// Îëê ÎÖ∏ÎìúÏùò string ÎπÑÍµê
+				// µŒ ≥ÎµÂ¿« string ∫Ò±≥
 				if(L1.get(j).getString().equals(L2.get(i).getString())){
 					max = LCS_table[i-1][j-1] + 1;
 					LCS_table[i][j] = max;
@@ -37,8 +38,8 @@ public class LCS {
 		}
 		
 	}
-	// Îëê ÎÖ∏ÎìúÍ∞ÑÏùò LCS table Í≥ÑÏÇ∞
-	public void makeTable(node N1,node N2) {
+	// µŒ ≥ÎµÂ∞£¿« LCS table ∞ËªÍ
+	public void makeTable(Node N1,Node N2) {
 		int len1 = N1.getString().length();
 		int len2 = N2.getString().length();
 		
@@ -54,7 +55,7 @@ public class LCS {
 			LCS_table[i][0] = 0;
 			for(int j = 1; j < len1; j++){
 				
-				// Îëê ÎÖ∏ÎìúÏùò Î¨∏ÏûêÏó¥Ïùò Î¨∏ÏûêÎπÑÍµê
+				// µŒ ≥ÎµÂ¿« πÆ¿⁄ø≠¿« πÆ¿⁄∫Ò±≥
 				if(N1.getString().charAt(j) == N2.getString().charAt(i)){
 					max = LCS_table[i-1][j-1] + 1;
 					LCS_table[i][j] = max;
@@ -72,8 +73,8 @@ public class LCS {
 		
 	}
 	
-	// Îëê LinkedListÍ∞ÑÏùò LCS Í≥ÑÏÇ∞
-	public void calcLCS(LinkedList<node> L1, LinkedList<node> L2){
+	// µŒ LinkedList∞£¿« LCS ∞ËªÍ
+	public void calcLCS(LinkedList<Node> L1, LinkedList<Node> L2){
 		
 		int len1 = L1.size();
 		int len2 = L2.size();
@@ -96,8 +97,8 @@ public class LCS {
 		  this.LCS_table = null;
 	}
 	
-	// Îëê nodeÍ∞ÑÏùò LCS Í≥ÑÏÇ∞
-	public void calcLCS(node N1, node N2){
+	// µŒ node∞£¿« LCS ∞ËªÍ
+	public void calcLCS(Node N1, Node N2){
 		
 		int len1 = N1.getString().length();
 		int len2 = N2.getString().length();
