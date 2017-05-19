@@ -156,7 +156,7 @@ public class mergerGUI extends JFrame {
 
 	    }
 	});
-    
+    textArea_2.setLineWrap(true);
    JScrollPane scrollPane = new JScrollPane(textArea_2);
   
    scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -211,6 +211,7 @@ public class mergerGUI extends JFrame {
 	    	textArea.setEditable(edit2);
 	    }
 	});
+  textArea.setLineWrap(true);
   JScrollPane scrollPane2 = new JScrollPane(textArea);
   scrollPane2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
   scrollPane2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
