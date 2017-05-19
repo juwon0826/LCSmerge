@@ -46,8 +46,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.BoxLayout;
 import javax.swing.Box;
+
 public class mergerGUI extends JFrame {
- private JPanel contentPane;
+ private JPanel contentPane;	
+    static boolean edit1 = true;
+	static boolean edit2 = true;
+	
  /**
   * Launch the application.
   */
@@ -67,6 +71,8 @@ public class mergerGUI extends JFrame {
   * Create the frame.
   */
  public mergerGUI() {
+
+	 
   setBackground(Color.WHITE);
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   setBounds(100, 100,800,600);
@@ -95,11 +101,7 @@ public class mergerGUI extends JFrame {
   JButton btnNewButton = new JButton("edit");
   panel_1.add(btnNewButton);
   
-  btnNewButton.addActionListener(new ActionListener() {
-	    public void actionPerformed(ActionEvent e) {
-	      //Do it
-	    }
-	});
+
   JButton btnNewButton_3 = new JButton("save");
   panel_1.add(btnNewButton_3);
   btnNewButton_3.addActionListener(new ActionListener() {
@@ -124,11 +126,7 @@ public class mergerGUI extends JFrame {
 	});
   JButton btnNewButton_2 = new JButton("edit");
   panel_4.add(btnNewButton_2);
-  btnNewButton_2.addActionListener(new ActionListener() {
-	    public void actionPerformed(ActionEvent e) {
-	      //Do it
-	    }
-	});
+
   JButton btnNewButton_4 = new JButton("save");
   panel_4.add(btnNewButton_4);
   btnNewButton_4.addActionListener(new ActionListener() {
@@ -149,7 +147,16 @@ public class mergerGUI extends JFrame {
 
    JTextArea textArea_2 = new JTextArea(10,50);
     panel_3.add(textArea_2);
-  
+   
+    btnNewButton.addActionListener(new ActionListener() {
+	    public void actionPerformed(ActionEvent e) {
+	    
+	    	edit1=!edit1;
+	    	textArea_2.setEditable(edit1);
+
+	    }
+	});
+    
    JScrollPane scrollPane = new JScrollPane(textArea_2);
   
    scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -196,7 +203,14 @@ public class mergerGUI extends JFrame {
 	});
   JTextArea textArea = new JTextArea(10,50);
   panel_3.add(textArea);
-  
+
+  btnNewButton_2.addActionListener(new ActionListener() {
+	    public void actionPerformed(ActionEvent e) {
+	    
+	    	edit2= !edit2;
+	    	textArea.setEditable(edit2);
+	    }
+	});
   JScrollPane scrollPane2 = new JScrollPane(textArea);
   scrollPane2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
   scrollPane2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
