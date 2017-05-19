@@ -1,15 +1,17 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 
+import javax.swing.JFileChooser;
+
 class Load {
 	private LinkedList<Node> loadList = null;
-	private String fileName = null;
+	private File fileName = null;
 	
-	Load(String fileName) {														// initialize
+	Load() {														// initialize
 		loadList = new LinkedList<Node>();
-		this.fileName = fileName;
 	}
 	
 	void loadFromFile() {
@@ -33,5 +35,15 @@ class Load {
 	
 	LinkedList<Node> getList() {												// return LinkedList
 		return loadList;
+	}
+	
+	void openPopup() {
+		JFileChooser chooser = new JFileChooser();
+		
+		int returnValue = chooser.showOpenDialog(null);
+		
+		if(returnValue == JFileChooser.APPROVE_OPTION) {
+			fileName = chooser.getSelectedFile();
+		}
 	}
 }

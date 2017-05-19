@@ -1,11 +1,12 @@
 import java.util.LinkedList;
 
-public class TestCode {
+public class TestCodeToFileManager {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		LinkedList<Node> originList = null;
 		
-		Load load = new Load("C:\\Users\\miste\\workspace\\FileManager\\src\\test.txt");
+		Load load = new Load();
+		load.openPopup();
 		load.loadFromFile();																			// load file
 		
 		originList = load.getList();																	// get list
