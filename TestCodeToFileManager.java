@@ -20,7 +20,8 @@ public class TestCodeToFileManager {
 		
 		originList.add(node);
 		
-		Save save = new Save(originList, "C:\\Users\\miste\\workspace\\FileManager\\src\\test2.txt");
+		Save save = new Save(originList);
+		save.openPopup();
 		save.saveToFile();																				// save file
 		
 		originList = null;

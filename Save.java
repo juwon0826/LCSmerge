@@ -1,15 +1,17 @@
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
 
+import javax.swing.JFileChooser;
+
 public class Save {
 	private LinkedList<Node> saveList = null;
-	private String fileName = null;
+	private File fileName = null;
 	
-	Save(LinkedList<Node> stringList, String fileName) {							// initialize
+	Save(LinkedList<Node> stringList) {							// initialize
 		this.saveList = stringList;
-		this.fileName = fileName;
 	}
 	
 	void saveToFile() {
@@ -28,6 +30,17 @@ public class Save {
 			out.close();
 		} catch(IOException e) {
 			System.out.println("Error : IOException");
+		}
+	}
+	
+	void openPopup() {
+		JFileChooser chooser = new JFileChooser();
+		chooser.setDialogTitle("save");
+		
+		int returnValue = chooser.showOpenDialog(null);
+		
+		if(returnValue == JFileChooser.APPROVE_OPTION) {
+			fileName = chooser.getSelectedFile();
 		}
 	}
 }

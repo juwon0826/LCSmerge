@@ -37,8 +37,13 @@ class Load {
 		return loadList;
 	}
 	
+	File getFileName() {
+		return fileName;
+	}
+	
 	void openPopup() {
 		JFileChooser chooser = new JFileChooser();
+		chooser.setDialogTitle("load");
 		
 		int returnValue = chooser.showOpenDialog(null);
 		
