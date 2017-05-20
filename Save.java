@@ -15,6 +15,10 @@ public class Save {
 	}
 	
 	void saveToFile() {
+		if(fileName == null) {
+			return;
+		}
+		
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter(fileName));
 			
@@ -41,6 +45,10 @@ public class Save {
 		
 		if(returnValue == JFileChooser.APPROVE_OPTION) {
 			fileName = chooser.getSelectedFile();
+		}
+		
+		else {
+			System.out.println("Cancel File Select");
 		}
 	}
 }

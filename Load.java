@@ -15,6 +15,10 @@ class Load {
 	}
 	
 	void loadFromFile() {
+		if(fileName == null) {
+			return;
+		}
+		
 		try {
 			BufferedReader in = new BufferedReader(new FileReader(fileName));
 			String oneLine = null;
@@ -49,6 +53,8 @@ class Load {
 		
 		if(returnValue == JFileChooser.APPROVE_OPTION) {
 			fileName = chooser.getSelectedFile();
+		} else {
+			System.out.println("Cancel File Select");
 		}
 	}
 }
