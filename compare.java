@@ -15,4 +15,10 @@ public class compare {
 		}
 	}
 	
+	public compare(){
+		this.LCS_checker = new LCS();
+	}
+	
+
 }
+

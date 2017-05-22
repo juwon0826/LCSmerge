@@ -12,7 +12,7 @@ public class node {
 	public String getString(){
 		return this.text;
 	};
-	
+
 	public boolean getIsLCS(){
 		return this.isLCS;
 	};
@@ -35,10 +35,14 @@ public class node {
 		return this.string_index;
 	}
 	public void addString_index(int i){
-		int[] temp = this.string_index;
-		this.string_index = new int[temp.length + 1];
-		this.string_index[temp.length] = i;
-		temp = null;
+		if(string_index == null){
+			this.string_index = new int[1];
+			this.string_index[0] = i;
+		}
+		else{
+			this.string_index = new int[string_index.length + 1];
+			this.string_index[string_index.length - 1] = i;
+		}
 	}
 	
 	public  node(){

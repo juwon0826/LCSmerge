@@ -1,4 +1,4 @@
-package merge;
+package compare;
 
 import java.util.LinkedList;
 public class LCS {
@@ -6,14 +6,20 @@ public class LCS {
 	private int LCS_length;
 	
 	// 두 LinkedList 간의 LCS table 계산 
-	public void makeTable(LinkedList<Node> L1,LinkedList<Node> L2) {
+	public void makeTable(LinkedList<node> L1,LinkedList<node> L2) {
+		
+		L1.add(0, new node());
+		L2.add(0,new node());
+		
+		
 		int len1 = L1.size();
 		int len2 = L2.size();
 		
 		// set the table
-		this.LCS_table = new int[len1][len2];
+		this.LCS_table = new int[len2][len1];
+		
 		for(int i = 0; i < len1; i++)
-			LCS_table[0][i] = 0;
+			this.LCS_table[0][i] = 0;
 		
 		//Calculation table index and LCS length
 		int max;
@@ -22,7 +28,9 @@ public class LCS {
 			LCS_table[i][0] = 0;
 			for(int j = 1; j < len1; j++){
 				// 두 노드의 string 비교
-				if(L1.get(j).getString().equals(L2.get(i).getString())){
+				String temp1 = L1.get(j).getString();
+				String temp2 = L2.get(i).getString();
+				if(temp1.equals(temp2)){
 					max = LCS_table[i-1][j-1] + 1;
 					LCS_table[i][j] = max;
 				}
@@ -33,18 +41,22 @@ public class LCS {
 						LCS_table[i][j] = LCS_table[i-1][j];
 				}
 			}
+			
 			if(LCS_length < max)
 				LCS_length = max;
 		}
 		
 	}
 	// 두 노드간의 LCS table 계산
-	public void makeTable(Node N1,Node N2) {
+	public void makeTable(node N1,node N2) {
+		N1.setString("0" + N1.getString());
+		N2.setString("0" + N2.getString());
+		
 		int len1 = N1.getString().length();
 		int len2 = N2.getString().length();
 		
 		// set the table
-		this.LCS_table = new int[len1][len2];
+		this.LCS_table = new int[len2][len1];
 		for(int i = 0; i < len1; i++)
 			LCS_table[0][i] = 0;
 		
@@ -74,7 +86,7 @@ public class LCS {
 	}
 	
 	// 두 LinkedList간의 LCS 계산
-	public void calcLCS(LinkedList<Node> L1, LinkedList<Node> L2){
+	public void calcLCS(LinkedList<node> L1, LinkedList<node> L2){
 		
 		int len1 = L1.size();
 		int len2 = L2.size();
@@ -98,7 +110,7 @@ public class LCS {
 	}
 	
 	// 두 node간의 LCS 계산
-	public void calcLCS(Node N1, Node N2){
+	public void calcLCS(node N1, node N2){
 		
 		int len1 = N1.getString().length();
 		int len2 = N2.getString().length();
