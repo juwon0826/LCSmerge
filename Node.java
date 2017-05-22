@@ -1,36 +1,72 @@
+package test;
 
-class Node {
-	private String text;							// store string text
-	private boolean isLcs;
-	private boolean isAddedEnter;
+public class Node {
 	
-	Node() {										// initialize
+	private String text;
+	private int numOfEnter;
+	private boolean isLCS;
+	private boolean isAddedEnter;
+	private int[] string_index;
+	
+	public String getString(){
+		return this.text;
+	};
+
+	public boolean getIsLCS(){
+		return this.isLCS;
+	};
+	public boolean getIsAddedEnter(){
+		return this.isAddedEnter;
+	};
+	
+	public void setString(String parm)
+	{
+		this.text = parm;
+	};
+	
+	public void setIsLCS(boolean parm){
+		this.isLCS = parm;
+	};
+	public void setIsAddedenter(boolean parm){
+		this.isAddedEnter = parm;
+	};
+	public int[] getString_index(){
+		return this.string_index;
+	}
+	
+	public void addString_index(int i){
+		if(string_index == null){
+			this.string_index = new int[1];
+			this.string_index[0] = i;
+		}
+		else{
+			int [] temp = string_index;
+			this.string_index = new int[string_index.length + 1];
+			this.string_index[0] = i;
+			
+			for(int j = 0; j < temp.length; j++)
+				this.string_index[j+1] = temp[j];
+				
+			
+		}
+	}
+	
+	public  Node(){
 		this.text = null;
-		this.isLcs = false;
+		this.numOfEnter = 0;
+		this.isLCS = false;
 		this.isAddedEnter = false;
 	}
 	
-	public String getString() {						// get or set string
-		return this.text;
+	public Node(String parm1, boolean parm2){
+		this.text = parm1;
+		this.numOfEnter = 0;
+		this.isLCS = false;
+		this.isAddedEnter = parm2;
 	}
 	
-	public void setString(String oneLine) {
-		this.text = oneLine;
-	}
-	
-	public boolean getEnter() {						// get or set enter
-		return isAddedEnter;
-	}
-	
-	public void setEnter(boolean addedEnter) {
-		this.isAddedEnter = addedEnter;
-	}
-	
-	public boolean getLcs() {						// get or set lcs
-		return isLcs;
-	}
-	
-	public void setLcs(boolean lcs) {
-		this.isLcs = lcs;
-	}
+
+
+
+
 }
