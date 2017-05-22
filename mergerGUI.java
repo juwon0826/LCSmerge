@@ -72,7 +72,7 @@ public class mergerGUI extends JFrame {
   */
  public mergerGUI() {
 
-	 
+  //create frame	 
   setBackground(Color.WHITE);
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   setBounds(100, 100,1500,800);
@@ -81,7 +81,7 @@ public class mergerGUI extends JFrame {
   contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
   contentPane.setLayout(new BorderLayout(0, 0));
   setContentPane(contentPane);
-  
+  //create panel (up)
   JPanel panel = new JPanel();
   contentPane.add(panel, BorderLayout.NORTH);
   panel.setLayout(new GridLayout(0, 3, 0, 0));
@@ -89,7 +89,7 @@ public class mergerGUI extends JFrame {
   JPanel panel_1 = new JPanel();
   panel.add(panel_1);
   panel_1.setLayout(new GridLayout(0, 3, 0, 0));
-  
+  //create left-up button
   JButton btnNewButton_5 = new JButton("load");
   panel_1.add(btnNewButton_5);
   
@@ -117,7 +117,7 @@ public class mergerGUI extends JFrame {
   JPanel panel_4 = new JPanel();
   panel.add(panel_4);
   panel_4.setLayout(new GridLayout(0, 3, 0, 0));
-  
+  //create right -up button
   JButton btnNewButton_1 = new JButton("load");
   panel_4.add(btnNewButton_1);
   btnNewButton_1.addActionListener(new ActionListener() {
@@ -145,7 +145,7 @@ public class mergerGUI extends JFrame {
   contentPane.add(panel_3, BorderLayout.CENTER);
   panel_3.setLayout(new BoxLayout(panel_3, BoxLayout.X_AXIS));
   
-
+   // create  left text area 
    JTextArea textArea_2 = new JTextArea(10,50);
     panel_3.add(textArea_2);
    
@@ -176,7 +176,7 @@ public class mergerGUI extends JFrame {
   JPanel panel_6 = new JPanel();
   panel_5.add(panel_6, BorderLayout.NORTH);
   panel_6.setLayout(new GridLayout(0, 1, 0, 0));
-  
+  //create center button (compare & merge)
   JButton btnNewButton_6 = new JButton("compare");
   panel_6.add(btnNewButton_6);
   btnNewButton_6.addActionListener(new ActionListener() {
@@ -202,6 +202,7 @@ public class mergerGUI extends JFrame {
 	      //Do it
 	    }
 	});
+  // create right textarea
   JTextArea textArea = new JTextArea(10,50);
   panel_3.add(textArea);
 
