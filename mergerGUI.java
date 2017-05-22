@@ -49,8 +49,8 @@ import javax.swing.Box;
 
 public class mergerGUI extends JFrame {
  private JPanel contentPane;	
-    static boolean edit1 = true;
-	static boolean edit2 = true;
+        static boolean edit1 = false;
+	static boolean edit2 = false;
 	
  /**
   * Launch the application.
@@ -148,6 +148,7 @@ public class mergerGUI extends JFrame {
    // create  left text area 
    JTextArea textArea_2 = new JTextArea(10,50);
     panel_3.add(textArea_2);
+    textArea_2.setEditable(false);
    
     btnNewButton.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent e) {
@@ -205,7 +206,7 @@ public class mergerGUI extends JFrame {
   // create right textarea
   JTextArea textArea = new JTextArea(10,50);
   panel_3.add(textArea);
-
+  textArea.setEditable(false);
   btnNewButton_2.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent e) {
 	    
