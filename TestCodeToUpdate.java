@@ -1,7 +1,13 @@
+import java.awt.Color;
 import java.util.LinkedList;
 
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultHighlighter;
+import javax.swing.text.DefaultHighlighter.DefaultHighlightPainter;
+import javax.swing.text.Document;
+import javax.swing.text.Highlighter;
 
 public class TestCodeToUpdate {
 	public static void main(String[] args) {
@@ -19,6 +25,11 @@ public class TestCodeToUpdate {
 		
 		Update update = new Update(list, textArea);
 		update.listToArea();
+		
+		update.areaToList();
+		
+		System.out.println(list.get(0).getEnter());
+		System.out.println(list.get(3).getEnter());
 	}
 	
 	public JTextArea makeWindow() {
